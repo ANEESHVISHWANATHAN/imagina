@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "ImaginaFont";
+  src: url("../assets/fonts/font.ttf") format("truetype");
+}
+
+.converter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: radial-gradient(circle at top left, #0f172a, #1e293b);
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+.converter-container {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.converter-container:hover {
+  box-shadow: 0 4px 40px rgba(56, 189, 248, 0.25);
+}
+
+.converter-title {
+  font-family: "ImaginaFont", sans-serif !important;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+.converter-subtitle {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: border-color 0.3s ease;
+}
+
+.upload-section:hover {
+  border-color: #38bdf8;
+}
+
+.upload-icon {
+  font-size: 3rem !important;
+  color: #38bdf8;
+  margin-bottom: 0.8rem;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .converter-container {
+    padding: 1.5rem;
+  }
+
+  .converter-title {
+    font-size: 1.6rem;
+  }
+
+  .upload-icon {
+    font-size: 2.4rem !important;
+  }
+}
