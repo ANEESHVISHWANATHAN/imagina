@@ -81,7 +81,7 @@ const buildPath = path.join(__dirname, "../client/my/my/build");
 app.use(express.static(buildPath));
 
 // ✅ Catch-all route (Express v5 compatible)
-app.get("/*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
 });
 
