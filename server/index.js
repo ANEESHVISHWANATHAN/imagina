@@ -66,6 +66,19 @@ app.use((err, req, res, next) => {
   console.error("Global error:", err.message);
   res.status(400).send(err.message || "Error");
 });
+// ------------------ existing code above ------------------
 
+const __dirname = path.resolve();
+
+// ✅ Serve React build (for production)
+app.use(express.static(path.join(__dirname, "../client/my/my/build")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/my/my/build", "index.html"));
+});
+
+// ------------------ start server ------------------
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+
+
