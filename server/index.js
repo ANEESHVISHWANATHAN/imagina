@@ -71,10 +71,10 @@ app.use((err, req, res, next) => {
 const __dirname = path.resolve();
 
 // ✅ Serve React build (for production)
-app.use(express.static(path.join(__dirname, "../client/my/my/build")));
+app.use(express.static(path.join(__dirname, "../client/my/my/public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/my/my/build", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/my/my/public", "index.html"));
 });
 
 // ------------------ start server ------------------
