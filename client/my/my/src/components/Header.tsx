@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     <header className="header">
       {/* Left side: logo + name */}
       <div className="logo-section">
-        <img src={favicon} alt="Imagina logo" className="logo-icon" />
+        
         <h1 className="logo-text">IMAGINA</h1>
       </div>
 
