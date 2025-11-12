@@ -29,13 +29,40 @@ const Converter: React.FC = () => {
     }
   };
 
-  const handleConvert = () => {
+  const handleConvert = async () => {
     if (!file) return;
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setConverted(false);
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("format", format);
+
+    try {
+      const response = await fetch("https://imagina.onrender.com/convert", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Conversion failed");
+
+      // Receive the converted image as a blob
+      const blob = await response.blob();
+      const downloadUrl = URL.createObjectURL(blob);
+
+      // Automatically trigger download
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.download = `converted.${format}`;
+      link.click();
+
       setConverted(true);
-    }, 1500);
+    } catch (error) {
+      console.error("Error converting file:", error);
+      alert("Conversion failed. Please try again!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
